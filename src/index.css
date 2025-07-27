@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  /* Teal/Purple Color Palette - Professional & Modern */
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-accent: #21262d;
+  
+  /* Teal/Purple accents */
+  --color-primary: #2dd4bf;
+  --color-secondary: #8b5cf6;
+  --color-tertiary: #06b6d4;
+  --color-quaternary: #a855f7;
+  
+  /* Text colors */
+  --color-text-primary: #f0f6fc;
+  --color-text-secondary: #8b949e;
+  --color-text-accent: #2dd4bf;
+  
+  /* Shadows and borders */
+  --shadow-pixel: 4px 4px 0px rgba(45, 212, 191, 0.2);
+  --shadow-pixel-red: 4px 4px 0px rgba(139, 92, 246, 0.2);
+  --shadow-pixel-gold: 4px 4px 0px rgba(6, 182, 212, 0.2);
+  
+  /* Pixel perfect measurements */
+  --pixel-unit: 4px;
+  --pixel-1x: 4px;
+  --pixel-2x: 8px;
+  --pixel-3x: 12px;
+  --pixel-4x: 16px;
+  --pixel-6x: 24px;
+  --pixel-8x: 32px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  
+  /* Pixel perfect rendering */
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Pixel perfect scrollbar */
+::-webkit-scrollbar {
+  width: var(--pixel-4x);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border: 2px solid var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Base typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.2;
+  margin-bottom: var(--pixel-4x);
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: var(--color-primary);
+  text-shadow: var(--shadow-pixel);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--color-tertiary);
+  text-shadow: var(--shadow-pixel-gold);
+}
+
+h3 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--color-quaternary);
+}
+
+p {
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  line-height: 1.8;
+  margin-bottom: var(--pixel-4x);
+  color: var(--color-text-secondary);
+}
+
+/* Pixel perfect buttons */
+.btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  padding: var(--pixel-3x) var(--pixel-6x);
+  border: 3px solid;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-pixel);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary);
+  color: var(--color-bg-primary);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(45, 212, 191, 0.3);
+}
+
+.btn-secondary {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-pixel-red);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary);
+  color: var(--color-text-primary);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(139, 92, 246, 0.3);
+}
+
+/* Pixel containers */
+.pixel-container {
+  border: 3px solid var(--color-primary);
+  background: var(--color-bg-secondary);
+  box-shadow: var(--shadow-pixel);
+  padding: var(--pixel-6x);
+  margin: var(--pixel-4x) 0;
+}
+
+/* Glitch effect for hero text */
+.glitch {
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: var(--color-secondary);
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: var(--color-quaternary);
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(-2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+/* Pixel grid background animation */
+.pixel-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(45, 212, 191, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.03) 1px, transparent 1px);
+  background-size: var(--pixel-8x) var(--pixel-8x);
+  z-index: -10;
+  animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(var(--pixel-8x), var(--pixel-8x)); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --pixel-unit: 3px;
+    --pixel-1x: 3px;
+    --pixel-2x: 6px;
+    --pixel-3x: 9px;
+    --pixel-4x: 12px;
+    --pixel-6x: 18px;
+    --pixel-8x: 24px;
+  }
+  
+  .btn {
+    font-size: 0.6rem;
+    padding: var(--pixel-2x) var(--pixel-4x);
+  }
+  
+  p {
+    font-size: 0.6rem;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--pixel-8x));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Loading screen styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-bar {
+  width: 300px;
+  height: var(--pixel-4x);
+  border: 3px solid var(--color-primary);
+  background: var(--color-bg-secondary);
+  position: relative;
+  margin-top: var(--pixel-6x);
+}
+
+.loading-fill {
+  height: 100%;
+  background: var(--color-primary);
+  width: 0%;
+  animation: loading 3s ease-in-out forwards;
+}
+
+@keyframes loading {
+  to { width: 100%; }
+}
