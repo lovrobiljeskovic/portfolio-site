@@ -1,6 +1,7 @@
 // Re-export all hooks for easy importing
-export * from './useTypingAnimation';
-export * from './useScrollSpy';
-export * from './useLoadingProgress';
-export * from './useContactForm';
-export * from './useScrollToSection';
+export { useContactForm } from './useContactForm';
+export { useLoadingProgress } from './useLoadingProgress';
+export { useScrollSpy } from './useScrollSpy';
+export { useScrollToSection } from './useScrollToSection';
+export { useTypingAnimation } from './useTypingAnimation';
+export { useIsMobile } from './useIsMobile';

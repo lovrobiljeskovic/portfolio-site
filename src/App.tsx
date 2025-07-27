@@ -1,15 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import {
-  LoadingScreen,
-  Navigation,
-  Hero,
-  About,
-  Skills,
-  Projects,
-  Contact,
-  ErrorBoundary,
-} from './components';
-import './App.css';
+import React, { useState, useEffect, useCallback } from "react";
+import { LoadingScreen, Navigation, Hero, About, Skills, Projects, Contact, ErrorBoundary } from "./components";
+import { useIsMobile } from "./hooks";
+import "./App.css";
 
 interface AppProps {
   loadingDuration?: number;
@@ -19,6 +11,7 @@ const LOADING_DURATION = 3000;
 
 const App: React.FC<AppProps> = ({ loadingDuration = LOADING_DURATION }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { isMobile } = useIsMobile();
 
   const handleLoadingComplete = useCallback(() => {
     setIsLoading(false);
@@ -33,7 +26,7 @@ const App: React.FC<AppProps> = ({ loadingDuration = LOADING_DURATION }) => {
     // Log error to external service in production
     if (import.meta.env.PROD) {
       // Example: logErrorToService(error, errorInfo);
-      console.error('App error:', error, errorInfo);
+      console.error("App error:", error, errorInfo);
     }
   }, []);
 
@@ -50,10 +43,10 @@ const App: React.FC<AppProps> = ({ loadingDuration = LOADING_DURATION }) => {
       <div className="app">
         {/* Pixel grid background */}
         <div className="pixel-grid" aria-hidden="true" />
-        
-        {/* Navigation */}
-        <Navigation />
-        
+
+        {/* Navigation - only show on non-mobile devices */}
+        {!isMobile && <Navigation />}
+
         {/* Main content */}
         <main className="portfolio-container" role="main">
           <Hero />
@@ -67,6 +60,6 @@ const App: React.FC<AppProps> = ({ loadingDuration = LOADING_DURATION }) => {
   );
 };
 
-App.displayName = 'App';
+App.displayName = "App";
 
 export default React.memo(App);
