@@ -1,27 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Self-hosted Press Start 2P font */
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('/fonts/press-start-2p.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Shows fallback first, swaps when ready */
+}
 
 :root {
   /* Teal/Purple Color Palette - Professional & Modern */
   --color-bg-primary: #0d1117;
   --color-bg-secondary: #161b22;
   --color-bg-accent: #21262d;
-  
+
   /* Teal/Purple accents */
   --color-primary: #2dd4bf;
   --color-secondary: #8b5cf6;
   --color-tertiary: #06b6d4;
   --color-quaternary: #a855f7;
-  
+
   /* Text colors */
   --color-text-primary: #f0f6fc;
   --color-text-secondary: #8b949e;
   --color-text-accent: #2dd4bf;
-  
+
   /* Shadows and borders */
   --shadow-pixel: 4px 4px 0px rgba(45, 212, 191, 0.2);
   --shadow-pixel-red: 4px 4px 0px rgba(139, 92, 246, 0.2);
   --shadow-pixel-gold: 4px 4px 0px rgba(6, 182, 212, 0.2);
-  
+
   /* Pixel perfect measurements */
   --pixel-unit: 4px;
   --pixel-1x: 4px;
@@ -43,12 +50,12 @@ html {
 }
 
 body {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", "Courier New", "Lucida Console", monospace;
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  
+
   /* Pixel perfect rendering */
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
@@ -75,8 +82,13 @@ body {
 }
 
 /* Base typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Press Start 2P', cursive;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Press Start 2P", "Courier New", "Lucida Console", monospace;
   line-height: 1.2;
   margin-bottom: var(--pixel-4x);
 }
@@ -107,7 +119,7 @@ p {
 
 /* Pixel perfect buttons */
 .btn {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", "Courier New", "Lucida Console", monospace;
   font-size: 0.75rem;
   padding: var(--pixel-3x) var(--pixel-6x);
   border: 3px solid;
@@ -185,30 +197,66 @@ p {
 }
 
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 @keyframes glitch-1 {
-  0% { transform: translate(0); }
-  20% { transform: translate(2px, 2px); }
-  40% { transform: translate(2px, -2px); }
-  60% { transform: translate(-2px, 2px); }
-  80% { transform: translate(-2px, -2px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 @keyframes glitch-2 {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, -2px); }
-  40% { transform: translate(2px, 2px); }
-  60% { transform: translate(-2px, -2px); }
-  80% { transform: translate(2px, 2px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 /* Pixel grid background animation */
@@ -218,17 +266,21 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    linear-gradient(rgba(45, 212, 191, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 212, 191, 0.03) 1px, transparent 1px);
+  /* Reduce grid line opacity to prevent visible artifacts over text */
+  background-image: linear-gradient(rgba(45, 212, 191, 0.0125) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.0125) 1px, transparent 1px);
   background-size: var(--pixel-8x) var(--pixel-8x);
   z-index: -10;
   animation: grid-move 20s linear infinite;
 }
 
 @keyframes grid-move {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(var(--pixel-8x), var(--pixel-8x)); }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--pixel-8x), var(--pixel-8x));
+  }
 }
 
 /* Responsive design */
@@ -242,12 +294,12 @@ p {
     --pixel-6x: 18px;
     --pixel-8x: 24px;
   }
-  
+
   .btn {
     font-size: 0.6rem;
     padding: var(--pixel-2x) var(--pixel-4x);
   }
-  
+
   p {
     font-size: 0.6rem;
   }
@@ -301,5 +353,7 @@ p {
 }
 
 @keyframes loading {
-  to { width: 100%; }
+  to {
+    width: 100%;
+  }
 }

@@ -38,7 +38,7 @@
   background: var(--color-bg-secondary);
   border: 2px solid var(--color-primary);
   color: var(--color-primary);
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", "Courier New", "Lucida Console", monospace;
   font-size: 0.6rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -466,7 +466,7 @@
 }
 
 .nav-btn {
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", "Courier New", "Lucida Console", monospace;
   font-size: 0.7rem;
   padding: var(--pixel-3x) var(--pixel-4x);
   border: 2px solid var(--color-primary);
@@ -582,7 +582,7 @@
 }
 
 .filter-btn {
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", "Courier New", "Lucida Console", monospace;
   font-size: 0.6rem;
   padding: var(--pixel-2x) var(--pixel-4x);
   border: 2px solid var(--color-secondary);
@@ -806,7 +806,7 @@
 
 .form-input,
 .form-textarea {
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", "Courier New", "Lucida Console", monospace;
   font-size: 0.7rem;
   padding: var(--pixel-3x);
   border: 2px solid var(--color-primary);
